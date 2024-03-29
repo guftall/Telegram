@@ -27,9 +27,14 @@ jobs:
   #         tags: ghcr.io/guftall/telegram-android-builder:latest
   android:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/guftall/telegram-android-builder:latest
-      env:
-        NODE_ENV: development
-      volumes:
-        - ./:/home/source
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Run the build process with Docker
+        uses: addnab/docker-run-action@v3
+        with:
+          image: ghcr.io/guftall/telegram-android-builder:latest
+          options: -v ${{ github.workspace }}:/var/www
+          run: |
+            ls /var/www
+            bash docker-build.sh
