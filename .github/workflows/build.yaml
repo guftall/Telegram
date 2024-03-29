@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: guftall/telegram-android-builder:latest
+          tags: ghcr.io/guftall/telegram-android-builder:latest
