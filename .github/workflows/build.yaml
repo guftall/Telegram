@@ -33,7 +33,3 @@ jobs:
         NODE_ENV: development
       volumes:
         - ./:/home/source
-    steps:
-      -
-        name: list outputs
-        run: ls /home/source/TMessagesProj/build/outputs/apk
