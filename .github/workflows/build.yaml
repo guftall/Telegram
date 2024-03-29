@@ -33,10 +33,10 @@ jobs:
       - name: Run the build process with Docker
         uses: addnab/docker-run-action@v3
         with:
-          image: ghcr.io/guftall/telegram-android-builder:latest
-          credentials:
-            username: ${{ github.actor }}
-            password: ${{ secrets.GITHUB_TOKEN }}
+          image: guftall/telegram-android-builder:latest
+          registry: gcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
           options: -v ${{ github.workspace }}:/var/www
           run: |
             ls /var/www
